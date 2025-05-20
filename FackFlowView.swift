@@ -89,6 +89,9 @@ struct CardTransactionAnimation: ViewModifier, Animatable {
         set { isActive = newValue }
     }
     
+    /// Applies a scaling, upward offset, and opacity animation to the content when activated.
+    ///
+    /// When `isActive` is true, the content scales down to 80%, moves up by 40 points, and fades to 70% opacity with an ease-in-out animation. When inactive, the content returns to its original state.
     func body(content: Content) -> some View {
         content
             .scaleEffect(isActive ? 0.8 : 1.0)
@@ -103,6 +106,9 @@ struct CardUPAnimation: ViewModifier {
     
     var isActive: Bool = false
     
+    /// Animates a view by scaling it up, moving it upward, and reducing its opacity when active.
+    ///
+    /// When `isActive` is true, the view scales to 1.1x, shifts up by 200 points, and fades to 80% opacity with an ease-in-out animation. When inactive, the view returns to its original state.
     func body(content: Content) -> some View {
         content
             .scaleEffect(isActive ? 1.1 : 1.0)
@@ -116,6 +122,9 @@ struct CardTransactionRotationAnimation: ViewModifier {
     
     var isActive: Bool = false
     
+    /// Applies a 3D rotation and fade-out effect to the content when active.
+    ///
+    /// Rotates the content 180 degrees around the x-axis with perspective and fades it out when `isActive` is true. The transition is animated with an ease-in-out curve over 0.5 seconds.
     func body(content: Content) -> some View {
         content
             .rotation3DEffect(
